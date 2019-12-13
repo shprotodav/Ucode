@@ -1,0 +1,11 @@
+.DS_Store
+._DS_Store
+*.swp
+
+*.out
+kek
+main.c
+mx_leaks.c
+make.sh
+
+make.sh
