@@ -6,6 +6,7 @@
 //  3 - error: line [line_value] is not valid;
 //  4 - error: invalid number of islands.
 
+// Done
 void mx_print_error(int error, char *message){
 	char *text1[] = {
 	"usage: ./pathfinder [filename]", // error 0

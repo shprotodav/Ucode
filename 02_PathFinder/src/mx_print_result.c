@@ -20,21 +20,27 @@ static void print_route(char **points_arr, int **result_arr, int result_len) {
 	mx_printstr("\n");
 }
 
-//
-static void print_distance(char **points_arr, int **result_arr, int result_len) {
+// Done
+static void print_distance(char **points_arr,
+int **result_arr, int result_len) {
 	mx_printstr("Distance: ");
-	mx_printint(result_arr[1][1]);
+	mx_printint(result_arr[1][0]);
 	if (result_len > 2) {
-		for (int i = 2; i < result_len; i++) {
-		mx_printstr(" + ");
-		mx_printint(result_arr[1][i]);
+		for (int i = 1; i < result_len - 1; i++) {
+			mx_printstr(" + ");
+			mx_printint(result_arr[1][i]);
 		}
 		mx_printstr(" = ");
-		mx_printint();
+		for (int i = 1; i < result_arr[1][0]; len +=result_arr[1][i]);
+		mx_printint(result_arr[1][result_len - 1]);
 	}
-	
 	mx_printstr("\n");
 }
+
+// Result arr: 
+// [result_len]   [pointA] [pointB] [pointC]
+// [total_lenA-C] [lenA-B] [lenB-C] []
+// result_len = 3
 
 // Done
 void mx_print_result(char **points_arr, int **result_arr, int result_len) {
