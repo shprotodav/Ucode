@@ -10,7 +10,6 @@ char **mx_strsplit(const char *s, char c) {
     int ptr = 0;
     char *word = (char *)s;
     char *tmp = NULL;
-    
     while (words--) {
         word = mx_strtrim_char(word, c);
         tmp = word;

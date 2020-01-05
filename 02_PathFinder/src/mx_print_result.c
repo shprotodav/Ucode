@@ -38,8 +38,8 @@ int **result_arr, int result_len) {
 }
 
 // Result arr: 
-// [result_len]   [pointA] [pointB] [pointC]
-// [total_lenA-C] [lenA-B] [lenB-C] []
+// [pointA] [pointB] [pointC]
+// [lenA-B] [lenB-C] [total_lenA-C]
 // result_len = 3
 
 // Done

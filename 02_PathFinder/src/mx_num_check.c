@@ -11,5 +11,5 @@ int *mx_num_check(char *str) {
     if (i != 0 && str[i] == '\0')
         return number;
     else
-        return -1; // Line 1 fail
+        return -1; // Line 1 fail 
 }
