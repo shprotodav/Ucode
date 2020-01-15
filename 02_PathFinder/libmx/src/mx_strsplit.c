@@ -4,7 +4,7 @@ char **mx_strsplit(const char *s, char c) {
     if (!s) return NULL;
 
     int words = mx_count_words(s, c);
-    char **res = malloc((words + 1)*sizeof(char *));
+    char **res = malloc((words + 1) * sizeof(char *));
     res[words] = NULL;
     int i = 0;
     int ptr = 0;

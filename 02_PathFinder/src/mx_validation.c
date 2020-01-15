@@ -2,7 +2,7 @@
 
 // i - line num; j - symbol num
 
-bool delimeter_validation(char *data_arr, char *lines_arr, int col_num, int *j) {
+static bool delimeter_validation(char *data_arr, char *lines_arr, int col_num, int *j) {
     int k = 0;
 
     if (col_num == 0 || col_num == 1) {
@@ -25,7 +25,7 @@ bool delimeter_validation(char *data_arr, char *lines_arr, int col_num, int *j) 
     return false;
 }
 
-static lines_validation(char **lines_arr, int *lines_count,
+static void lines_validation(char **lines_arr, int *lines_count,
 int empty_line_number, char ***data_arr) {
     int j;
 
@@ -59,8 +59,9 @@ int empty_line_number, char ***data_arr) {
 // .
 // .
 
-char ***mx_validation(int argc, char *argv[], int *lines_count) {
-	char ***data_arr = malloc(sizeof(char **) * (*lines_count));
+char ***mx_validation(int argc, char *argv[]) {
+    int *lines_count;
+	char ***data_arr;
     char **lines_arr;
     char *file_str;
 
@@ -74,6 +75,8 @@ char ***mx_validation(int argc, char *argv[], int *lines_count) {
         free(file_str);
         mx_print_error(2, argv[1]); // Empty file
     }
+    *lines_count = mx_count_substr(file_str, "\n");
+    data_arr = malloc(sizeof(char **) * (*lines_count));
     lines_arr = mx_strsplit(file_str, '\n');
     lines_validation(lines_arr, &lines_count, // Line's check
     mx_empty_line_num(file_str, lines_count), &data_arr);
