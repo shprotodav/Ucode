@@ -1,7 +1,7 @@
 #include "pathfinder.h"
 
 char **mx_unique_islands(char ***data_arr, int *lines_count) {
-    char **points_arr = malloc(sizeof(char **) * (*lines_count));
+    char **points_arr = malloc(sizeof(char *) * (*lines_count));
     int k = 0;
 
     for (int i = 0; data_arr[i]; i++) {
