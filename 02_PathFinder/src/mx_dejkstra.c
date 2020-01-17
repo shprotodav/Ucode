@@ -16,7 +16,8 @@ char **points_arr, int points_count) {
             d[i][0] = 0;
         else
             d[i][0] = -1;
-    for (int y = start_fin[0]; ; y = index_min) {
+
+    for (int y = start_fin[0], j = 0; j < points_count; y = index_min, j++) {
         min = -1;
         for (int i = 0; i < points_count; i++)
             if (d[i][1] != 1) {
@@ -27,6 +28,7 @@ char **points_arr, int points_count) {
                 }
             }    
         d[y][1] = 1;
-        
     }
+
+    
 }

@@ -9,10 +9,15 @@
 #include <string.h>
 #include <malloc/malloc.h>
 
-typedef struct s_list {
-    void *data;
-    struct s_list *next;
-} t_list;
+typedef struct s_path {
+    t_point *start;
+    t_path *next;
+} t_path;
+
+typedef struct s_point {
+    int point;
+    t_point *next;
+} t_point;
 
 
 #endif
