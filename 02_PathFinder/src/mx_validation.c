@@ -77,10 +77,10 @@ char ***mx_validation(int argc, char *argv[]) {
     }
     *lines_count = mx_count_substr(file_str, "\n");
     data_arr = malloc(sizeof(char **) * (*lines_count));
-    lines_arr = mx_strsplit(file_str, '\n');
-    lines_validation(lines_arr, &lines_count, // Line's check
-    mx_empty_line_num(file_str, lines_count), &data_arr);
-    free(file_str);
+    lines_arr = mx_strsplit(&file_str, '\n');
+    lines_validation(&lines_arr, &lines_count, // Line's check
+    mx_empty_line_num(&file_str, &lines_count), &data_arr);
+    free(&file_str);
     return data_arr;
 }
 
