@@ -1,9 +1,9 @@
 #include "pathfinder.h"
 
-void mx_push_back_path(t_path **list, int point_num) {
-    t_path *new = mx_create_path(point_num);
-    t_path *last = *list;
-
+void mx_push_back_point(t_point **list, int point_num) {
+    t_point *new = mx_create_point(point_num);
+    t_point *last = *list;
+    
     if (*list == NULL)
         *list = new;
     else {
