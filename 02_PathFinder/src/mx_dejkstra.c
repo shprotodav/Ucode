@@ -13,11 +13,11 @@ int points_count, t_path ***path_arr) {
     for (int i = 0; i < points_count; i++)
         br_flags[i] = malloc(sizeof(int) * points_count);
     
-    for (int start = 0; start < points_count; start++) { // перечисление стартовых
+    for (int start = 0; start < points_count - 1; start++) { // перечисление стартовых
         for (int i = 0; i < points_count; i++) // обнуление d[][0] мин расстояний
             if (i == start) {
                 d[i][0] = 0;
-                d[i][1] = 2; // стартова точка
+                d[i][1] = 2; // стартовая точка
             }
             else {
                 d[i][0] = -1;
@@ -37,8 +37,8 @@ int points_count, t_path ***path_arr) {
                 }    
             d[y][1] = 1;
         }
-        
-        for (int fin = 0; fin < points_count; fin++) {
+
+        for (int fin = start + 1; fin < points_count; fin++) {
             if (fin != start) {
                 //path_arr[start][fin] = mx_create_path(fin);
                 fin_point = mx_create_point(fin);
