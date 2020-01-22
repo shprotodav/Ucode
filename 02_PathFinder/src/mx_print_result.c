@@ -10,29 +10,31 @@ static void print_path(char *first_point, char *second_point) {
 }
 
 // Done
-static void print_route(char **points_arr, t_path *path_cell, int result_len) {
+static void print_route(char **points_arr, t_point *points) {
 	mx_printstr("Route: ");
-	mx_printstr(points_arr[result_arr[0][0]]);
-	for (int i = 1; i < result_len; i++) {
+	mx_printstr(points_arr[points->point]);
+	for (t_point *p = points; p->next; p = p->next) {
 		mx_printstr(" -> ");
-		mx_printstr(points_arr[result_arr[0][i]]);
+		mx_printstr(points_arr[p->next->point]);
 	}
 	mx_printstr("\n");
 }
 
 // Done
-static void print_distance(char **points_arr,
-t_path *path_cell, int result_len) {
+static void print_distance(int **dist, t_point *points) {
+	int sum;
+
 	mx_printstr("Distance: ");
-	mx_printint(result_arr[1][0]);
-	if (result_len > 2) {
-		for (int i = 1; i < result_len - 1; i++) {
+	mx_printint(dist[points->point][points->next->point]);
+	sum = dist[points->point][points->next->point];
+	if (points->next->next) {
+		for (t_point *p = points->next; p->next; p = p->next) {
 			mx_printstr(" + ");
-			mx_printint(result_arr[1][i]);
+			mx_printint(dist[points->point][points->next->point]);
+			sum += dist[points->point][points->next->point];
 		}
 		mx_printstr(" = ");
-		for (int i = 1; i < result_arr[1][0]; len +=result_arr[1][i]);
-		mx_printint(result_arr[1][result_len - 1]);
+		mx_printint(sum);
 	}
 	mx_printstr("\n");
 }
@@ -43,12 +45,11 @@ t_path *path_cell, int result_len) {
 // result_len = 3
 
 // Done
-void mx_print_result(char **points_arr, t_path *path_cell, int result_len) {
+void mx_print_result(char **points_arr, t_point *points, int **dist, int *s_f) {
 	mx_printstr("========================================\n");
-	print_path(points_arr[result_arr[0][0]],
-	points_arr[result_arr[0][result_len]]);
-	print_route(&points_arr, &result_arr, result_len);
-	print_distance(&points_arr, &result_arr, result_len);
+	print_path(points_arr[s_f[0]], points_arr[s_f[1]]);
+	print_route(points_arr, points);
+	print_distance(dist, points);
 	mx_printstr("========================================\n");
 }
 
