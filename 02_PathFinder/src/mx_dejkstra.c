@@ -1,7 +1,6 @@
 #include "pathfinder.h"
 
-void mx_dejkstra(int **dist, char **points_arr,
-int points_count, t_path ***path_arr) {
+void mx_dejkstra(int **dist, int points_count, t_path ***path_arr) {
     int **d = malloc(sizeof(int *) * points_count); // [][0]dist,[][1]fl
     int **br_flags = malloc(sizeof(int) * points_count);
     int index_min;
@@ -42,7 +41,7 @@ int points_count, t_path ***path_arr) {
             if (fin != start) {
                 //path_arr[start][fin] = mx_create_path(fin);
                 fin_point = mx_create_point(fin);
-                mx_rec_back(fin_point, &path_arr[start][fin], dist, d);
+                mx_rec_back(fin_point, path_arr[start][fin], dist, d);
 
                 /*for (int near = 0; near < points_count; near++) {
                     if (dist[][near] != -1 ////////) {

@@ -1,5 +1,7 @@
 #include "pathfinder.h"
 
+int get_start(int **d);
+
 void mx_rec_back(t_point *last, t_path *path_cell, int **dist, int **d) {
     int near = 0;
     int start = get_start(d);

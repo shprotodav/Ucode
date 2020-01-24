@@ -1,6 +1,18 @@
 #include "pathfinder.h"
 
-// Done
+static void print_path(char *first_point, char *second_point);
+static void print_route(char **points_arr, t_point *points);
+static void print_distance(int **dist, t_point *points);
+
+void mx_print_result(char **points_arr,
+t_point *points, int **dist, int *s_f) {
+	mx_printstr("========================================\n");
+	print_path(points_arr[s_f[0]], points_arr[s_f[1]]);
+	print_route(points_arr, points);
+	print_distance(dist, points);
+	mx_printstr("========================================\n");
+}
+
 static void print_path(char *first_point, char *second_point) {
 	mx_printstr("Path: ");
 	mx_printstr(first_point);
@@ -9,7 +21,6 @@ static void print_path(char *first_point, char *second_point) {
 	mx_printstr("\n");
 }
 
-// Done
 static void print_route(char **points_arr, t_point *points) {
 	mx_printstr("Route: ");
 	mx_printstr(points_arr[points->point]);
@@ -20,7 +31,6 @@ static void print_route(char **points_arr, t_point *points) {
 	mx_printstr("\n");
 }
 
-// Done
 static void print_distance(int **dist, t_point *points) {
 	int sum;
 
@@ -38,18 +48,3 @@ static void print_distance(int **dist, t_point *points) {
 	}
 	mx_printstr("\n");
 }
-
-// Result arr: 
-// [pointA] [pointB] [pointC]
-// [lenA-B] [lenB-C] [total_lenA-C]
-// result_len = 3
-
-// Done
-void mx_print_result(char **points_arr, t_point *points, int **dist, int *s_f) {
-	mx_printstr("========================================\n");
-	print_path(points_arr[s_f[0]], points_arr[s_f[1]]);
-	print_route(points_arr, points);
-	print_distance(dist, points);
-	mx_printstr("========================================\n");
-}
-

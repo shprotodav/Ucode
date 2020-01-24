@@ -1,5 +1,7 @@
 #include "pathfinder.h"
 
+static bool is_unique(char **points_arr, char *data_arr);
+
 char **mx_unique_islands(char ***data_arr, int *lines_count) {
     char **points_arr = malloc(sizeof(char *) * (*lines_count));
     int k = 0;

@@ -7,7 +7,7 @@
 //  4 - error: invalid number of islands.
 
 // Done
-void mx_print_error(int error, char *message){
+void mx_print_error(int error, char *message) {
 	char *text1[] = {
 	"usage: ./pathfinder [filename]", // error 0
 	"error: file ", // error 1
@@ -20,10 +20,12 @@ void mx_print_error(int error, char *message){
 	" is empty\n", // error 2
 	" is not valid\n", // error 3
 	"\n"}; // error 4
+
 	write(2, text1[error], mx_strlen(text1[error]));
 	if (message)
 		write(2, message, mx_strlen(message));
 	write(2, text2[error], mx_strlen(text2[error]));
+	free(message);
 	exit(1);
 }
 
