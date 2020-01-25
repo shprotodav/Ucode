@@ -1,7 +1,15 @@
 #include "pathfinder.h"
 
-void mx_matrix_mirror(int **matrix) {
-    for (int i = 1; matrix[i]; i++)
-        for (int j = 0; j < i; j++)
-            matrix[i][j] = matrix[j][i];
+void mx_matrix_mirror(int ***matrix, int points_count) {
+    for (int i = 0; i < points_count - 1; i++){
+        mx_printstr("i = ");///////////////
+        mx_printint(i);///////////////
+        for (int j = i + 1; j < points_count; j++){
+            mx_printstr("j = ");///////////////
+            mx_printint(j);///////////////
+            (*matrix)[j][i] = (*matrix)[i][j];
+        }
+            
+    }
+    
 }
