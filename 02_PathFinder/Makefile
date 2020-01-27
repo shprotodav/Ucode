@@ -12,6 +12,7 @@ SRC = main.c\
 	mx_del_front_point.c\
 	mx_dub_path.c\
 	mx_empty_line_num.c\
+	mx_free_points.c\
 	mx_freesher.c\
 	mx_get_pcount.c\
 	mx_matrix_mirror.c\
@@ -34,6 +35,7 @@ SRCS = $(addprefix src/, main.c\
 	mx_del_front_point.c\
 	mx_dub_path.c\
 	mx_empty_line_num.c\
+	mx_free_points.c\
 	mx_freesher.c\
 	mx_get_pcount.c\
 	mx_matrix_mirror.c\
@@ -56,6 +58,7 @@ OBJ = main.o\
 	mx_del_front_point.o\
 	mx_dub_path.o\
 	mx_empty_line_num.o\
+	mx_free_points.o\
 	mx_freesher.o\
 	mx_get_pcount.o\
 	mx_matrix_mirror.o\

@@ -40,8 +40,8 @@ static void print_distance(int **dist, t_point *points) {
 	if (points->next->next) {
 		for (t_point *p = points->next; p->next; p = p->next) {
 			mx_printstr(" + ");
-			mx_printint(dist[points->point][points->next->point]);
-			sum += dist[points->point][points->next->point];
+			mx_printint(dist[p->point][p->next->point]);
+			sum += dist[p->point][p->next->point];
 		}
 		mx_printstr(" = ");
 		mx_printint(sum);
