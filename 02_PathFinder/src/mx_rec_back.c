@@ -13,9 +13,11 @@ void mx_rec_back(t_point **last, t_path **path_cell, int **dist, int ***d) {
     //mx_printstr("\nback-2\n");///////////////
 
     for (; (*d)[near]; near++) {
+        /*
         mx_printstr("NEAR ======== ");///////////////
         mx_printint(near);///////////////
         mx_printstr("\n");///////////////
+        */
 
         if ((*d)[(*last)->point][0] - dist[(*last)->point][near] == (*d)[near][0] &&
         (*last)->point != near && dist[(*last)->point][near] != -1) {
@@ -24,7 +26,7 @@ void mx_rec_back(t_point **last, t_path **path_cell, int **dist, int ***d) {
             
             
             mx_push_front_point(last, near);
-
+/*
             ///////////////
             mx_printstr("------------ point way: ");///////////////
             for (t_point *p = *last; p != NULL; p = p->next){
@@ -33,11 +35,11 @@ void mx_rec_back(t_point **last, t_path **path_cell, int **dist, int ***d) {
             }
             mx_printstr("\n");///////////////
             //////////////
-
+*/
             
             if (near == start) {
                 mx_dub_path(path_cell, last);
-
+/*
                 ///////////////
                 mx_printstr("/////////////// WAY: ");///////////////
                 for (t_point *p = (*path_cell)->start; p != NULL; p = p->next){
@@ -46,7 +48,7 @@ void mx_rec_back(t_point **last, t_path **path_cell, int **dist, int ***d) {
                 }
                 mx_printstr("\n");///////////////
                 //////////////
-                
+                */
 
 
                 //mx_del_front_point(last);
@@ -57,7 +59,7 @@ void mx_rec_back(t_point **last, t_path **path_cell, int **dist, int ***d) {
             }
                 
             mx_del_front_point(last);
-
+/*
             ///////////////
             mx_printstr("------------ point way    DEL: ");///////////////
             for (t_point *p = *last; p != NULL; p = p->next){
@@ -70,6 +72,7 @@ void mx_rec_back(t_point **last, t_path **path_cell, int **dist, int ***d) {
             mx_printint(near);///////////////
             mx_printstr("\n");///////////////
             //////////////
+            */
         }
     }
 }

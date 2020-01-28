@@ -1,12 +1,11 @@
 #include "pathfinder.h"
 
-//  0 - usage: ./pathfinder [filename];
-//  1 - error: file [filename] does not exist;
-//  2 - error: file [filename] is empty;
-//  3 - error: line [line_value] is not valid;
-//  4 - error: invalid number of islands.
+// 0 - usage: ./pathfinder [filename];
+// 1 - error: file [filename] does not exist;
+// 2 - error: file [filename] is empty;
+// 3 - error: line [line_value] is not valid;
+// 4 - error: invalid number of islands.
 
-// Done
 void mx_print_error(int error, char *message) {
 	char *text1[] = {
 	"usage: ./pathfinder [filename]", // error 0
@@ -26,7 +25,11 @@ void mx_print_error(int error, char *message) {
 		write(2, message, mx_strlen(message));
 	write(2, text2[error], mx_strlen(text2[error]));
 	//free(message);
-	system("leaks -q pathfinder");
+	
+	
+	
+	
+	//system("leaks -q pathfinder");
 	exit(1);
 }
 
