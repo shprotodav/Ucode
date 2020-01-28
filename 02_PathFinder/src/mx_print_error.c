@@ -25,7 +25,8 @@ void mx_print_error(int error, char *message) {
 	if (message)
 		write(2, message, mx_strlen(message));
 	write(2, text2[error], mx_strlen(text2[error]));
-	free(message);
+	//free(message);
+	system("leaks -q pathfinder");
 	exit(1);
 }
 

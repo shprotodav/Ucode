@@ -4,10 +4,10 @@
 
 static bool delimeter_validation(char **data_arr,
 char *lines_arr, int col_num, int *j);
-static void lines_validation(char **lines_arr, int *lines_count,
+static void lines_validation(char **lines_arr, int *points_count,
 int empty_line_number, char ***data_arr);
 
-char ***mx_validation(int argc, char *argv[], char ***points_arr) {
+char ***mx_validation(int argc, char *argv[], char ***points_arr, int *points_count) {
     int *lines_count = malloc(sizeof(int) * 1);
 	char ***data_arr;
     char **lines_arr;
@@ -36,14 +36,17 @@ char ***mx_validation(int argc, char *argv[], char ***points_arr) {
     data_arr = malloc(sizeof(char **) * (*lines_count)); //------------------------- 1
     lines_arr = mx_strsplit(file_str, '\n');
     mx_printstr("\n7\n");///////////////
-    lines_validation(lines_arr, lines_count, // Line's check
+    lines_validation(lines_arr, points_count, // Line's check
     mx_empty_line_num(file_str, lines_count), data_arr);
     mx_printstr("8\n");///////////////
     free(file_str);
-    *points_arr = mx_unique_islands(data_arr, lines_count);
+    *points_arr = mx_unique_islands(data_arr, points_count);
     mx_printstr("9\n");///////////////
 
     mx_printstr("10\n");///////////////
+    free(lines_count);
+    //lines_count = NULL;
+    mx_del_strarr(&lines_arr);
     return data_arr;
 }
 
@@ -103,18 +106,18 @@ char *lines_arr, int col_num, int *j) {
     return false;
 }
 
-static void lines_validation(char **lines_arr, int *lines_count,
+static void lines_validation(char **lines_arr, int *points_count,
 int empty_line_number, char ***data_arr) {
     int j;
-
-    if ((*lines_count = mx_num_check(lines_arr[0])) == -1)
+    mx_printstr("7.0.1\n");///////////////
+    if ((*points_count = mx_num_check(lines_arr[0])) == -1)
         mx_print_error(3, "1"); // Line 1 fail
     mx_printstr("7.1\n");///////////////
     data_arr[0] = malloc(sizeof(char *) * 3);
     for (int i = 1; lines_arr[i]; i++) { // Line counter
         mx_printstr("7.2\n");///////////////
         if (empty_line_number == i)
-            mx_print_error(3, mx_itoa(i + 1));
+            mx_print_error(3, mx_itoa(i));
         mx_printstr("7.3\n");///////////////
         data_arr[i] = malloc(sizeof(char *) * 3); //-------------------------------------- 2
         j = 0;

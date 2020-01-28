@@ -3,16 +3,20 @@
 int get_start(int ***d);
 
 void mx_rec_back(t_point **last, t_path **path_cell, int **dist, int ***d) {
-    mx_printstr("back-1\n");///////////////
+    //mx_printstr("back-1\n");///////////////
     int near = 0;
     int start = get_start(d);
 
 
-    mx_printstr("check start ======== ");///////////////
-    mx_printint(start);///////////////
-    mx_printstr("\nback-2\n");///////////////
+    //mx_printstr("check start : ");///////////////
+    //mx_printint(start);///////////////
+    //mx_printstr("\nback-2\n");///////////////
 
     for (; (*d)[near]; near++) {
+        mx_printstr("NEAR ======== ");///////////////
+        mx_printint(near);///////////////
+        mx_printstr("\n");///////////////
+
         if ((*d)[(*last)->point][0] - dist[(*last)->point][near] == (*d)[near][0] &&
         (*last)->point != near && dist[(*last)->point][near] != -1) {
             
@@ -42,19 +46,37 @@ void mx_rec_back(t_point **last, t_path **path_cell, int **dist, int ***d) {
                 }
                 mx_printstr("\n");///////////////
                 //////////////
+                
 
-                return;
+
+                //mx_del_front_point(last);
+                //return;
             }  
-            else
+            else {
                 mx_rec_back(last, path_cell, dist, d);
+            }
+                
             mx_del_front_point(last);
+
+            ///////////////
+            mx_printstr("------------ point way    DEL: ");///////////////
+            for (t_point *p = *last; p != NULL; p = p->next){
+                mx_printint(p->point);///////////////
+                mx_printstr(" ");///////////////
+            }
+            mx_printstr("\n");///////////////
+            //////////////
+            mx_printstr("NEAR = ");///////////////
+            mx_printint(near);///////////////
+            mx_printstr("\n");///////////////
+            //////////////
         }
     }
 }
 
 int get_start(int ***d) {
     int start;
-    mx_printstr("back-1.1\n");///////////////
+    //mx_printstr("back-1.1\n");///////////////
     for (start = 0; (*d)[start][1] != 2 && (*d)[start]; start++);
     return start;
 }

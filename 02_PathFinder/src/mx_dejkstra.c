@@ -2,7 +2,7 @@
 
 void mx_dejkstra(int **dist, int points_count, t_path ****path_arr) {
     int **d = malloc(sizeof(int *) * (points_count + 1)); // [][0]dist,[][1]fl
-    int **br_flags = malloc(sizeof(int *) * (points_count +1));
+    //int **br_flags = malloc(sizeof(int *) * (points_count +1));
     int index_min;
     int min = -1;
     t_point *fin_point;
@@ -20,11 +20,11 @@ mx_printstr("points count = ");///////////////
 
 
 
-
+/*
     for (int i = 0; i < points_count; i++)
         br_flags[i] = malloc(sizeof(int) * points_count);
     mx_printstr("14.3\n");///////////////
-    
+    */
 
     for (int start = 0; start < points_count - 1; start++) { // перечисление стартовых
         mx_printstr("dejkstra start = ");///////////////
@@ -77,14 +77,14 @@ mx_printstr("points count = ");///////////////
 
 
 
-        mx_printstr("14.3.2\n");///////////////
+        //mx_printstr("14.3.2\n");///////////////
 
         for (int fin = start + 1; fin < points_count; fin++) {
             mx_printstr("dejkstra fin = ");///////////////
             mx_printint(fin);///////////////
             mx_printstr("\n");///////////////
             if (fin != start) {
-                mx_printstr("14.3.2.1\n");///////////////
+                //mx_printstr("14.3.2.1\n");///////////////
                 //path_arr[start][fin] = mx_create_path(fin);
                 fin_point = mx_create_point(fin);
 
@@ -94,9 +94,9 @@ mx_printstr("points count = ");///////////////
                 mx_printint(fin_point->point);///////////////
                 mx_printstr("\n");///////////////
 
-                mx_printstr("14.3.2.2\n");///////////////
+                //mx_printstr("14.3.2.2\n");///////////////
                 mx_rec_back(&fin_point, &((*path_arr)[start][fin]), dist, &d);
-                mx_printstr("14.3.2.3\n");///////////////
+                //mx_printstr("14.3.2.3\n");///////////////
                 mx_free_points(&fin_point);
                 /*for (int near = 0; near < points_count; near++) {
                     if (dist[][near] != -1 ////////) {
@@ -110,6 +110,18 @@ mx_printstr("points count = ");///////////////
         mx_printstr("14.3.3\n");///////////////
     }
     
+
+
+/////////////////
+int **p = d;
+    
+    while (*p) {
+        free(*p);
+        *p = NULL;
+        p++;
+    }
+    free(d);
+/////////////////
 
     
 }

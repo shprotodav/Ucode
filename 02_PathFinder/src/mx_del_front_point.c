@@ -9,3 +9,4 @@ void mx_del_front_point(t_point **head) {
     free(*head);
     *head = pointer;
 }
+
