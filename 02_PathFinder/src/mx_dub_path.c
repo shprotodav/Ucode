@@ -5,8 +5,7 @@ void mx_dub_path(t_path **list, t_point **old) {
     t_path *last = *list;
 
     for (t_point *p = (*old)->next; p; p = p->next) // copy of points
-        mx_push_back_point(&new->start, p->point);
-        
+        mx_push_back_point(&new->start, p->point); 
     if (*list == NULL)
         *list = new;
     else {

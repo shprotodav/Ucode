@@ -7,9 +7,9 @@ char *mx_nbr_to_hex(unsigned long nbr) {
     for (unsigned long i = nbr; i / 16 != 0; i /= 16)
         len++;
     hex = malloc(len + 1);
-    if (!hex) return NULL;
+    if (!hex)
+        return NULL;
     hex[len] = '\0';
-
     for (unsigned long i = nbr; len != 0; i /= 16, len--) {
         if (i % 16 <= 9)
             hex[len - 1] =  i % 16 + '0';

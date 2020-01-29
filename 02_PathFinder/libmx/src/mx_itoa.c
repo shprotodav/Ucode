@@ -3,6 +3,7 @@
 char *mx_itoa(int number) {
     int sign = 1;
     int len = 1;
+    char *asciinum = NULL;
 
     if (number < 0) {
         len++;
@@ -10,8 +11,7 @@ char *mx_itoa(int number) {
     }
     for (int i = number; i / 10 != 0; i /= 10)
         len++;
-    char *asciinum = mx_strnew(len);
-    
+    asciinum = mx_strnew(len);
     for (int i = number; len != 0; i /= 10, len--) {
         if (number < 0 && len == 1)
             asciinum[0] = '-';

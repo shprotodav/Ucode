@@ -1,7 +1,7 @@
 #include "libmx.h"
 
 void mx_printerr(const char *s) {
-write(2, s, mx_strlen(s));
-write(2, "\n", 1);
+    write(2, s, mx_strlen(s));
+    write(2, "\n", 1);
 }
 

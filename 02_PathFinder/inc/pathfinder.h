@@ -26,11 +26,11 @@ char **points_arr, int points_count);
 t_path *mx_create_path(int point_num);
 t_point *mx_create_point(int point_num);
 void mx_dejkstra(int **dist, int points_count, t_path ****path_arr);
+bool mx_delimeter_validation(char **data_arr,
+char *lines_arr, int col_num, int *j);
 void mx_del_front_point(t_point **head);
 void mx_dub_path(t_path **list, t_point **old);
 int mx_empty_line_num(const char *str, int *lines_count);
-void mx_freesher(char ****data_arr, char ***points_arr,
-int ***dist, t_path ****path_arr);
 void mx_free_points(t_point **head);
 int *mx_get_pcount(char **points_arr);
 void mx_matrix_mirror(int ***matrix, int points_count);

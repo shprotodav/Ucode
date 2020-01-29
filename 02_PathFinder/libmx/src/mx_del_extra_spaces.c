@@ -14,16 +14,3 @@ char *mx_del_extra_spaces(const char *str) {
     mx_strdel(&buf);
     return res;
 }
-
-
-// int main() {
-//   char *a1 = "   lolkek     hm/lolkek   hm/lolkek hm   ";
-
-//   //char *b1 = ;
-//   //char *b2 = strndup(a1, c);
-//   //printf("kek\n");
-//   printf("%s*\n", mx_del_extra_spaces(a1));
-//   //printf("%zu\n", malloc_size(b2));
-
-//   return 0;
-// }

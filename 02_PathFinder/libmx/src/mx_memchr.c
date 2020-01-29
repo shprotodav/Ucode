@@ -5,5 +5,6 @@ void *mx_memchr(const void *s, int c, size_t n) {
         s = (unsigned char *)s + 1;
     if (*((unsigned char *)s) == c)
         return (unsigned char *)s;
-    else return NULL;
+    else
+        return NULL;
 }
