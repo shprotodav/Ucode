@@ -1,11 +1,11 @@
 #include "libmx.h"
 
-void *mx_memmem(const void *big, size_t big_len, const void *little, size_t little_len) {
+void *mx_memmem(const void *big, size_t big_len,
+const void *little, size_t little_len) {
     if (big_len - little_len < 0 || !big_len
         || !little_len || !big || !little) {
         return NULL;
     }
-        
     if (little_len > 1) {
         while (big_len > 0) {
             if (*((unsigned char *)big) == *((unsigned char *)little)) {

@@ -55,8 +55,6 @@ void mx_printn();
 void mx_printstr(const char *s);
 void mx_push_back(t_list **list, void *data);
 void mx_push_front(t_list **list, void *data);   
-int mx_quicksort(char **arr, int left, int right);
-int mx_read_line(char **lineptr, int buf_size, char delim, const int fd);
 void *mx_realloc(void *ptr, size_t size);
 char *mx_replace_substr(const char *str, const char *sub, const char *replace);
 t_list *mx_sort_list(t_list *lst, bool (*cmp)(void *, void *));

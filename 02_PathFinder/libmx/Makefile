@@ -43,7 +43,6 @@ SRC = mx_atoi.c\
 	mx_printstr.c\
 	mx_push_back.c\
 	mx_push_front.c\
-	mx_read_line.c\
 	mx_realloc.c\
 	mx_replace_substr.c\
 	mx_sort_list.c\
@@ -65,8 +64,7 @@ SRC = mx_atoi.c\
 	mx_strtrim.c\
 	mx_strtrim_char.c\
 	mx_swap_char.c\
-	mx_swap_str.c\
-	mx_quicksort.c
+	mx_swap_str.c
 
 
 OBJ = mx_atoi.o\
@@ -110,7 +108,6 @@ OBJ = mx_atoi.o\
 	mx_printstr.o\
 	mx_push_back.o\
 	mx_push_front.o\
-	mx_read_line.o\
 	mx_realloc.o\
 	mx_replace_substr.o\
 	mx_sort_list.o\
@@ -132,8 +129,7 @@ OBJ = mx_atoi.o\
 	mx_strtrim.o\
 	mx_strtrim_char.o\
 	mx_swap_char.o\
-	mx_swap_str.o\
-	mx_quicksort.o
+	mx_swap_str.o
 
 
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic

@@ -1,6 +1,6 @@
 #include "pathfinder.h"
 
-int get_start(int ***d);
+static int get_start(int ***d);
 
 void mx_rec_back(t_point **last, t_path **path_cell, int **dist, int ***d) {
     int near = 0;
@@ -20,8 +20,9 @@ void mx_rec_back(t_point **last, t_path **path_cell, int **dist, int ***d) {
     }
 }
 
-int get_start(int ***d) {
+static int get_start(int ***d) {
     int start;
+    
     for (start = 0; (*d)[start][1] != 2 && (*d)[start]; start++);
     return start;
 }
